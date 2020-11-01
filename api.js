@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const superagent = require('superagent');
 const request = require('request');
-const port = 9800;
+var port = process.env.PORT || 9800;
 const cors = require('cors');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
@@ -25,8 +25,8 @@ app.post('/oauth',(req,res) => {
     superagent
     .post('https://github.com/login/oauth/access_token')
     .send({
-        client_id:'841775ffdee13afd7f4f',
-        client_secret:'6af79224667933d50c3daaff3ac610f903305df6',
+        client_id:'ba1c3492c956d2139738',
+        client_secret:'fcfd5e11fd64245e03d1dc9c1f990b34292987db',
         code:req.body.code
     })
     .set('Accept','application/json')
